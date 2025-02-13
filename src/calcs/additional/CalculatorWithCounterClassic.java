@@ -1,4 +1,6 @@
-package additional;
+package calcs.additional;
 
-public class CalculatorWithCounterClassic extends simple.CalculatorWithMathExtends {
+import calcs.simple.CalculatorWithMathExtends;
+
+public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
 }

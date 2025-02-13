@@ -1,5 +1,7 @@
 package runners;
 
+import calcs.simple.CalculatorWithMathExtends;
+
 public class CalculatorWithMathExtendsMain {
     public static void main(String[] args) {
         CalculatorWithMathExtends calc3 = new CalculatorWithMathExtends();

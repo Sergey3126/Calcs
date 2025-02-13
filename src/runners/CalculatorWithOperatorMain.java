@@ -1,5 +1,7 @@
 package runners;
 
+import calcs.simple.CalculatorWithOperator;
+
 public class CalculatorWithOperatorMain {
     public static void main(String[] args) {
         CalculatorWithOperator calc = new CalculatorWithOperator();

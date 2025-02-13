@@ -1,4 +1,4 @@
-package simple;
+package calcs.simple;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator{
     /**
