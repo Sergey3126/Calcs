@@ -1,6 +1,9 @@
 package calcs.simple;
 
-public class CalculatorWithMathExtends extends CalculatorWithOperator{
+import calcs.api.ICalculator;
+
+//4
+public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
     /**
      * степень
      *

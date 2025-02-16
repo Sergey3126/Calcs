@@ -2,8 +2,8 @@ package calcs.additional;
 
 import calcs.simple.CalculatorWithMathExtends;
 
-//5
-public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
+//6
+public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
     /**
      * кол-во операций
      */
@@ -26,19 +26,6 @@ public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
     }
 
     /**
-     * вычитание
-     *
-     * @param minus1
-     * @param minus2
-     * @return
-     */
-    public double subtraction(double minus1, double minus2) {
-        incrementCountOperation();
-        double result = minus1 - minus2;
-        return result;
-    }
-
-    /**
      * сложение
      *
      * @param plus1
@@ -47,8 +34,19 @@ public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
      */
     public double sum(double plus1, double plus2) {
         incrementCountOperation();
-        double plus = plus1 + plus2;
-        return plus;
+        return super.sum(plus1, plus2);
+    }
+
+    /**
+     * вычитание
+     *
+     * @param minus1
+     * @param minus2
+     * @return
+     */
+    public double subtraction(double minus1, double minus2) {
+        incrementCountOperation();
+        return super.subtraction(minus1, minus2);
     }
 
     /**
@@ -60,11 +58,7 @@ public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
      */
     public double division(double division1, double division2) {
         incrementCountOperation();
-        double result = 0;
-        if (division2 != 0) {
-            result = division1 / division2;
-        }
-        return result;
+        return super.division(division1, division2);
     }
 
     /**
@@ -76,8 +70,7 @@ public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
      */
     public double multiplication(double multiplication1, double multiplication2) {
         incrementCountOperation();
-        double result = multiplication1 * multiplication2;
-        return result;
+        return super.multiplication(multiplication1, multiplication2);
     }
 
     /**
@@ -89,23 +82,7 @@ public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
      */
     public double pow(double pow1, int pow2) {
         incrementCountOperation();
-        double result = Math.pow(pow1, pow2);
-        return result;
-    }
-
-    /**
-     * корень
-     *
-     * @param sqrt1
-     * @return
-     */
-    public double sqrt(double sqrt1) {
-        incrementCountOperation();
-        double result = 0;
-        if (sqrt1 > 0) {
-            result = Math.sqrt(sqrt1);
-        }
-        return result;
+        return super.pow(pow1, pow2);
     }
 
     /**
@@ -116,7 +93,19 @@ public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
      */
     public double module(double module1) {
         incrementCountOperation();
-        double module = Math.abs(module1);
-        return module;
+        return super.module(module1);
     }
+
+    /**
+     * корень
+     *
+     * @param sqrt1
+     * @return
+     */
+    public double sqrt(double sqrt1) {
+        incrementCountOperation();
+        return super.sqrt(sqrt1);
+    }
+
+
 }

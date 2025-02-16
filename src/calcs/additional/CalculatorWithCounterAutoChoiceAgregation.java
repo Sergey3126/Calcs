@@ -1,9 +1,48 @@
-package calcs.simple;
+package calcs.additional;
 
 import calcs.api.ICalculator;
+import calcs.simple.CalculatorWithMathCopy;
+import calcs.simple.CalculatorWithMathExtends;
+import calcs.simple.CalculatorWithOperator;
+//9
+public class CalculatorWithCounterAutoChoiceAgregation {
+    private final ICalculator calc;
+    public CalculatorWithCounterAutoChoiceAgregation(CalculatorWithOperator calc) {
+        this.calc = calc;
+    }
 
-//2
-public class CalculatorWithOperator implements ICalculator {
+    public CalculatorWithCounterAutoChoiceAgregation(CalculatorWithMathCopy calc) {
+        this.calc = calc;
+    }
+
+    public CalculatorWithCounterAutoChoiceAgregation(CalculatorWithMathExtends calc) {
+        this.calc = calc;
+    }
+
+
+
+    /**
+     * кол-во операций
+     */
+    private long countOperation;
+
+    /**
+     * увеличивает кол-во операций
+     */
+    public void incrementCountOperation() {
+        countOperation++;
+    }
+
+    /**
+     * выводит кол-во операций
+     *
+     * @return
+     */
+    public long getCountOperation() {
+        return countOperation;
+    }
+
+
     /**
      * вычитание
      *
@@ -11,7 +50,8 @@ public class CalculatorWithOperator implements ICalculator {
      * @param minus2
      * @return
      */
-    public double  subtraction(double minus1, double minus2) {
+    public double subtraction(double minus1, double minus2) {
+        incrementCountOperation();
         double result = minus1 - minus2;
         return result;
     }
@@ -23,7 +63,8 @@ public class CalculatorWithOperator implements ICalculator {
      * @param plus2
      * @return
      */
-    public double sum (double plus1, double plus2) {
+    public double sum(double plus1, double plus2) {
+        incrementCountOperation();
         double plus = plus1 + plus2;
         return plus;
     }
@@ -36,6 +77,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @return
      */
     public double division(double division1, double division2) {
+        incrementCountOperation();
         double result = 0;
         if (division2 != 0) {
             result = division1 / division2;
@@ -51,6 +93,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @return
      */
     public double multiplication(double multiplication1, double multiplication2) {
+        incrementCountOperation();
         double result = multiplication1 * multiplication2;
         return result;
     }
@@ -63,14 +106,8 @@ public class CalculatorWithOperator implements ICalculator {
      * @return
      */
     public double pow(double pow1, int pow2) {
-        double result = pow1;
-        if (pow1 >= 0 && pow2 != 0) {
-            for (int i = 0; i < pow2 - 1; i++) {
-                result = result * pow1;
-            }
-        } else if (pow2 == 0) {
-            result = 1;
-        } else System.out.println("Не верный ввод");
+        incrementCountOperation();
+        double result = Math.pow(pow1, pow2);
         return result;
     }
 
@@ -81,6 +118,7 @@ public class CalculatorWithOperator implements ICalculator {
      * @return
      */
     public double sqrt(double sqrt1) {
+        incrementCountOperation();
         double result = 0;
         if (sqrt1 > 0) {
             result = Math.sqrt(sqrt1);
@@ -95,9 +133,10 @@ public class CalculatorWithOperator implements ICalculator {
      * @return
      */
     public double module(double module1) {
-        if (module1 < 0) {
-            module1 = module1 * -1;
-        }
-        return module1;
+        incrementCountOperation();
+        double module = Math.abs(module1);
+        return module;
     }
+
 }
+
